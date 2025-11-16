@@ -10,21 +10,21 @@ ollama serve
 
 
 br-ia-fiscal/
-├── br_ia_fiscal/                  # Pacote principal
+├── br_ia_fiscal/                 # Pacote principal
 │   ├── __init__.py
 │   ├── core/                     # Lógica central
-│   │   ├── validator.py
-│   │   ├── optimizer.py
-│   │   ├── monitor.py
-│   │   └── models.py
+│   │   ├── validator.py              # Validação XML + SEFAZ
+│   │   ├── optimizer.py              # Otimização tributária
+│   │   ├── monitor.py                # Monitor de mudanças legais
+│   │   └── sped.py                   # Pydantic models (NFeItem, etc)
+│   │   └── models.py                   
 │   ├── integrations/             # APIs externas
-│   │   ├── sefaz.py
-│   │   ├── receita.py
-│   │   └── sped.py
+│   │   ├── sefaz.py                  #consultar SEFAZ
+│   │   ├── receita.py                #consultar CNPJ
 │   ├── ai/                       # Camada de IA
 │   │   ├── client.py             # Abstração de LLM
 │   │   ├── prompts.py
-│   │   └── grok.py / ollama.py
+│   │   └── grok.py / ollama.py / DeepSeek
 │   ├── schemas/                  # XML Schema NF-e (XSD oficial)
 │   └── utils/                    # XML, logging, helpers
 ├── tests/                        # 100+ testes
